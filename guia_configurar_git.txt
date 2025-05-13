@@ -1,0 +1,31 @@
+# Añadir una clave SSH
+ssh-keygen -t rsa -b 4096 -C "correo@gmail.com"
+eval "$(ssh-agent -s)"
+	#busca la ruta donde esté el archivo y el .pub
+ssh-add ~/.ssh/id_rsa
+	#agrega esta linea en github
+cat ~/.ssh/id_rsa.pub
+
+# Crear un repositorio
+mkdir proyecto
+cd proyecto
+git init
+	#Aquí empiezas tu proyecto, en este caso agregar un script.sh
+touch README.md mi_script.sh
+chmod +x mi_script.sh
+
+git add .
+	#Con este agregas un comentario de los cambios
+git commit -m "Inicializar proyecto"
+git branch -M master
+#Te conectas a tu git poniendo el username/elrepositorio 
+#creado anteriormente en git a través de https://github.com/ClickHerexe?tab=repositories
+git remote add origin git@github.com:TU_USUARIO/TU_REPOSITORIO.git
+#Publicas el proyecto
+git push -u origin master
+
+# Actualizar un repositorio
+git pull origin master
+git add .
+git commit -m "Descripción de los cambios"
+git push origin master
