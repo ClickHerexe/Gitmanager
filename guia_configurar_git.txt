@@ -1,23 +1,26 @@
+# Iniciar el agente si te da problemas y añadir la clave ssh
+eval "$(ssh-agent -s)"			#Abre el agente
+ssh-add ~/.ssh/ssh_key			#Agrega la key
+ssh-add -l				#Comprueba que el ssh_key se agregó correctamente
+
 # Añadir una clave SSH
 cd ~/.ssh
-ssh-keygen -t rsa -b 4096 -C "correo@gmail.com"
-eval "$(ssh-agent -s)"
-# Busca la ruta donde esté el archivo y el .pub
-ssh-add ~/.ssh/id_rsa
-# Agrega esta linea en github
-cat ~/.ssh/id_rsa.pub
+ssh-keygen -t rsa -b 4096 -C "correo@gmail.com" #Genera la Key
+eval "$(ssh-agent -s)"				#Abre el agente
+ssh-add ~/.ssh/ssh_key				#Busca la ruta donde esté el archivo y el .pub
+cat ~/.ssh/ssh_key.pub				#Agrega esta linea en github
 
 # Crear un repositorio
 mkdir proyecto
 cd proyecto
-git init
-# Empiezas tu proyecto, en este caso agregar un script.sh
-touch README.md 
+git init				#Empiezas tu proyecto, en este caso agregar un script.sh
+touch README.md
 nano script.sh
 chmod +x script.sh
+
 # Publicar el proyecto
 git add .
-git commit -m "Inicializar proyecto"
+git commit -m "Comienzo del proyecto"	#Comienzo del proyecto
 git branch -M master
 #Te conectas a tu git poniendo el username/elrepositorio 
 #creado anteriormente en git a través de https://github.com/ClickHerexe?tab=repositories
