@@ -35,3 +35,6 @@ git push origin master
 
 # Descargar un repositorio
 git clone git@github.com:TU_USUARIO/TU_REPOSITORIO.git
+
+#Eliminar archivos subidos a git que ya no quieres que estén porque están en .gitignore
+git rm --cached <archivo1> <archivo2>

@@ -5,6 +5,8 @@ echo "1) Iniciar repositorio"
 echo "2) Publicar el repositorio"
 echo "3) Actualizar el repositorio"
 echo "4) Cambiar de branch (crear si no existe)"
+echo "5) Fusionar branch al master"
+echo "6) Salir"
 read -p "Opción: " opcion
 
 case $opcion in
@@ -45,6 +47,20 @@ case $opcion in
     else
         git checkout -b "$branch"
     fi
+    ;;
+  5)
+    read -p "Nombre del branch que quieres fusionar con master: " merge
+    git checkout master
+    git merge "$merge"
+    read -p "Elegir branch: " branch
+    git pull origin "$branch"
+    git add .
+    read -p "Descripción del commit: " desc
+    git commit -m "$desc"
+    git push -u origin "$branch"
+    ;;
+  6)
+    exit 0
     ;;
   *)
     echo "Opción no válida"
