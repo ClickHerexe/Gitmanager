@@ -2,10 +2,10 @@
 
 echo "Selecciona una opción:"
 echo "1) Iniciar repositorio"
-echo "2) Publicar el repositorio"
-echo "3) Actualizar el repositorio"
+echo "2) Publicar repositorio"
+echo "3) Actualizar repositorio"
 echo "4) Cambiar de branch (crear si no existe)"
-echo "5) Fusionar branch al master"
+echo "5) Actualizar el master a partir de un branch"
 echo "6) Salir"
 read -p "Opción: " opcion
 
@@ -49,7 +49,7 @@ case $opcion in
     fi
     ;;
   5)
-    read -p "Nombre del branch que quieres fusionar con master: " merge
+    read -p "branch que quieres fusionar a master: " merge
     git checkout master
     git merge "$merge"
     read -p "Elegir branch: " branch
