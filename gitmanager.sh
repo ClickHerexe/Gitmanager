@@ -1,31 +1,44 @@
 #!/bin/bash
 
-# Iniciar repo solo si no está iniciado
-if [ ! -d ".git" ]; then
-    git init
-fi
+echo "Selecciona una opción:"
+echo "1) Iniciar repositorio"
+echo "2) Publicar el repositorio"
+echo "3) Actualizar el repositorio"
+read -p "Opción: " opcion
 
-# Crear README.md solo si no existe
-if [ ! -f "README.md" ]; then
-    touch README.md
-fi
+case $opcion in
+  1)
+    if [ ! -d ".git" ]; then
+        git init
+    fi
 
-# Elegir branch
-read -p "Elegir branch: " branch
-git pull origin "$branch"
-git add .
+    if [ ! -f "README.md" ]; then
+        touch README.md
+    fi
+    ;;
+  2)
+    git add .
+    read -p "Descripción del commit: " desc
+    git commit -m "$desc"
+    git branch -M master
+    read -p "Nombre del repositorio: " repo
 
-# Mensaje del commit
-read -p "Descripción del commit: " desc
-git commit -m "$desc"
+    if ! git remote get-url origin >/dev/null 2>&1; then
+        git remote add origin git@github.com:ClickHerexe/"$repo".git
+    fi
 
-# Nombre del repo
-read -p "Nombre del repositorio: " repo
-
-# Añadir remote solo si no existe
-if ! git remote get-url origin >/dev/null 2>&1; then
-    git remote add origin git@github.com:ClickHerexe/"$repo".git
-fi
-
-# Push
-git push -u origin "$branch"
+    git push -u origin master
+    ;;
+  3)
+    read -p "Elegir branch: " branch
+    git pull origin "$branch"
+    git add .
+    read -p "Descripción del commit: " desc
+    git commit -m "$desc"
+    git push -u origin "$branch"
+    ;;
+  *)
+    echo "Opción no válida"
+    exit 1
+    ;;
+esac
