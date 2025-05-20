@@ -1,5 +1,5 @@
 #Aquí añades todos los archivos que no quieres que se suban a Github, por ejemplo
+changebranch.sh
 start2git.sh
 publish2git.sh
 update2git.sh
-

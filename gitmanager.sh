@@ -4,6 +4,7 @@ echo "Selecciona una opción:"
 echo "1) Iniciar repositorio"
 echo "2) Publicar el repositorio"
 echo "3) Actualizar el repositorio"
+echo "4) Cambiar de branch (crear si no existe)"
 read -p "Opción: " opcion
 
 case $opcion in
@@ -36,6 +37,14 @@ case $opcion in
     read -p "Descripción del commit: " desc
     git commit -m "$desc"
     git push -u origin "$branch"
+    ;;
+  4)
+    read -p "Branch: " branch
+    if git branch --list "$branch" >/dev/null 2>&1; then
+        git checkout "$branch"
+    else
+        git checkout -b "$branch"
+    fi
     ;;
   *)
     echo "Opción no válida"
