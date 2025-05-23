@@ -5,19 +5,19 @@
 ### Iniciar el agente SSH y añadir la clave
 
 ```bash
-eval "$(ssh-agent -s)"          # Inicia el agente
-ssh-add ~/.ssh/ssh_key          # Añade la clave privada
-ssh-add -l                      # Verifica que se añadió correctamente
+eval "$(ssh-agent -s)"  # Inicia el agente
+ssh-add ~/.ssh/ssh_key  # Añade la clave privada
+ssh-add -l              # Verifica que se añadió correctamente
 ```
 
 ### Generar y añadir una nueva clave SSH
 
 ```bash
 cd ~/.ssh
-ssh-keygen -t rsa -b 4096 -C "correo@gmail.com"   # Genera una nueva clave SSH
-eval "$(ssh-agent -s)"                            # Inicia el agente
-ssh-add ~/.ssh/ssh_key                            # Añade la clave generada
-cat ~/.ssh/ssh_key.pub                            # Copia este contenido y añádelo en GitHub
+ssh-keygen -t rsa -b 4096 -C "correo@gmail.com" # Genera una nueva clave SSH
+eval "$(ssh-agent -s)"                          # Inicia el agente
+ssh-add ~/.ssh/ssh_key                          # Añade la clave generada
+cat ~/.ssh/ssh_key.pub                          # Copia este contenido y añádelo en GitHub
 ```
 
 ## Uso de Gitmanager
@@ -27,7 +27,7 @@ cat ~/.ssh/ssh_key.pub                            # Copia este contenido y añá
 ```bash
 mkdir proyecto
 cd proyecto
-git init                                          # Inicializa el repositorio
+git init   # Inicializa el repositorio
 touch README.md
 nano script.sh
 chmod +x script.sh
