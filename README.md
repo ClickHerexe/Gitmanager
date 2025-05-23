@@ -1,6 +1,6 @@
 # Gitmanager
 
-##Crear una clave e iniciar agente (en caso necesario) SSH
+## Crear una clave e iniciar agente (en caso necesario) SSH
 
 ### Iniciar el agente SSH y añadir la clave
 
