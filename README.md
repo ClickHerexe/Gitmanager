@@ -1,6 +1,4 @@
-# Proyecto
-
-## Configuración SSH
+# GITMANAGER
 
 ### Iniciar el agente SSH y añadir la clave
 
