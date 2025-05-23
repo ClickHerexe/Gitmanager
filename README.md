@@ -1,4 +1,6 @@
-# GITMANAGER
+# Gitmanager
+
+##Crear una clave e iniciar agente (en caso necesario) SSH
 
 ### Iniciar el agente SSH y añadir la clave
 
@@ -18,7 +20,7 @@ ssh-add ~/.ssh/ssh_key                            # Añade la clave generada
 cat ~/.ssh/ssh_key.pub                            # Copia este contenido y añádelo en GitHub
 ```
 
-## Uso de Git
+## Uso de Gitmanager
 
 ### Crear un nuevo repositorio local
 
