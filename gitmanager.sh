@@ -56,7 +56,7 @@ case $opcion in
     git add .
     read -p "Descripción del commit: " desc
     git commit -m "$desc"
-    git push -u origin "$branch"
+    git push -u origin master
     ;;
   6)
     exit 0
