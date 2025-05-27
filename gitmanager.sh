@@ -52,8 +52,7 @@ case $opcion in
     read -p "branch que quieres fusionar a master: " merge
     git checkout master
     git merge "$merge"
-    read -p "Elegir branch: " branch
-    git pull origin "$branch"
+    git pull origin master
     git add .
     read -p "Descripción del commit: " desc
     git commit -m "$desc"
