@@ -43,10 +43,10 @@ case $opcion in
     ;;
   4)
     read -p "Crear nombre del branch: " branch
-    if git branch --list "$branch" >/dev/null 2>&1; then
-        git checkout -b "$branch"
-    else
+    if git show-ref --verify --quiet refs/heads/"$branch"; then
         git checkout "$branch"
+    else
+        git checkout -b "$branch"
     fi
     ;;
   5)
