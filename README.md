@@ -25,7 +25,7 @@ cat ~/.ssh/ssh_key.pub                            # Copialo y añádelo en tus c
 ### Crear un nuevo repositorio local
 
 ```bash
-mkdir tu_proyecto && cd tu_proyecto # Crea la carpeta de tu proyecto
+mkdir -p tu_proyecto && cd tu_proyecto # Crea la carpeta de tu proyecto
 git init                            # Inicia el repositorio
 touch README.md                     # Crea el README de github
 ```
@@ -47,7 +47,7 @@ git push -u origin master
 git pull origin master
 git add .
 git commit -m "Descripción de los cambios"
-git push origin master
+git push -u origin master
 ```
 
 ### Clonar un repositorio

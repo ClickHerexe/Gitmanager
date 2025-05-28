@@ -24,10 +24,11 @@ case $opcion in
     read -p "Descripción del commit: " desc
     git commit -m "$desc"
     git branch -M master
+    read -p "Nombre de usuario: " gitname
     read -p "Nombre del repositorio: " repo
 
     if ! git remote get-url origin >/dev/null 2>&1; then
-        git remote add origin git@github.com:ClickHerexe/"$repo".git
+        git remote add origin git@github.com:"$gitname"/"$repo".git
     fi
 
     git push -u origin master
@@ -41,7 +42,7 @@ case $opcion in
     git push -u origin "$branch"
     ;;
   4)
-    read -p "Branch: " branch
+    read -p "Crear nombre del branch: " branch
     if git branch --list "$branch" >/dev/null 2>&1; then
         git checkout -b "$branch"
     else
@@ -49,7 +50,8 @@ case $opcion in
     fi
     ;;
   5)
-    read -p "branch que quieres fusionar a master: " merge
+    read -p "nombre del branch que quieres fusionar: " merge
+    current_branch=$(git branch --show-current)
     git checkout master
     git merge "$merge"
     git pull origin master
@@ -57,6 +59,7 @@ case $opcion in
     read -p "Descripción del commit: " desc
     git commit -m "$desc"
     git push -u origin master
+    git checkout "$current_branch"
     ;;
   6)
     exit 0
