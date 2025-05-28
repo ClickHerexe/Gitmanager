@@ -35,7 +35,9 @@ case $opcion in
     ;;
   3)
     read -p "Elegir branch: " branch
-    git pull origin "$branch"
+    if git ls-remote --exit-code --heads origin "$branch" >/dev/null 2>&1; then
+      git pull origin "$branch"
+    fi
     git add .
     read -p "Descripción del commit: " desc
     git commit -m "$desc"
