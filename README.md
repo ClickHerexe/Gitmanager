@@ -14,10 +14,10 @@ ssh-add -l              # Verifica que se añadió correctamente
 
 ```bash
 cd ~/.ssh
-ssh-keygen -t rsa -b 4096 -C "correo@gmail.com" # Genera una nueva clave SSH
-eval "$(ssh-agent -s)"                          # Inicia el agente
-ssh-add ~/.ssh/ssh_key                          # Añade la clave generada
-cat ~/.ssh/ssh_key.pub                          # Copia este contenido y añádelo en GitHub
+ssh-keygen -t rsa -b 4096 -C "tucorreo@gmail.com" # Genera una nueva clave SSH
+eval "$(ssh-agent -s)"                            # Inicia el agente
+ssh-add ~/.ssh/ssh_key                            # Añade la clave generada en el agente
+cat ~/.ssh/ssh_key.pub                            # Copialo y añádelo en tus claves de GitHub
 ```
 
 ## Uso de Gitmanager
@@ -25,13 +25,11 @@ cat ~/.ssh/ssh_key.pub                          # Copia este contenido y añáde
 ### Crear un nuevo repositorio local
 
 ```bash
-mkdir proyecto
-cd proyecto
-git init   # Inicializa el repositorio
-touch README.md
-nano script.sh
-chmod +x script.sh
+mkdir tu_proyecto && cd tu_proyecto # Crea la carpeta de tu proyecto
+git init                            # Inicia el repositorio
+touch README.md                     # Crea el README de github
 ```
+Una vez creado el README.md solo queda empezar tu proyecto, cuando creas que es seguro publicarlo pasamos a la publicar el repositorio, pero antes de nada asegurate de crearlo en Github, en mi caso sería: https://github.com/ClickHerexe?tab=repositories > New
 
 ### Publicar el repositorio en GitHub
 
